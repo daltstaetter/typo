@@ -37,6 +37,12 @@ class Category < ActiveRecord::Base
   def self.to_prefix
     'category'
   end
+  
+  
+  def self.default_text_input
+    'Enter a new category'
+  end
+  
 
   def self.reorder(serialized_list)
     self.transaction do

@@ -63,14 +63,18 @@ describe Admin::CategoriesController do
     assert_raise(ActiveRecord::RecordNotFound) { Category.find(test_id) }
   end
   
-  #describe 'Should find the correct :id parameter' do
-  #  it 'should be 1' do
-  #    assert_response
-  #  end
-  
-  describe "Should return the correct prefix"
+  # DA 10/12/2018
+  describe "Should return the correct prefix" do
     it 'should be category' do
       expect(Category.to_prefix).to eq "category"
     end
+  end
+  
+  # DA 10/12/2018
+  describe "Should prompt the admin to enter a name for the new category" do
+    it 'should give instructions with text' do
+      expect(Category.default_text_input).to eq 'Enter a new category'
+    end
+  end
   
 end
